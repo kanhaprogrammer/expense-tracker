@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kanha Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google font (link is safe to include) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <header class="header-card">
+      <h1 class="glow-heading">Kanha Expense Tracker</h1>
+      <p class="subtitle">Track expenses quickly — clean, aesthetic, and responsive.</p>
+    </header>
+
+    <section class="form-card card">
+      <form id="expense-form" class="form-grid" autocomplete="off">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" placeholder="e.g. Groceries" required>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount (₹)</label>
+          <input id="amount" name="amount" type="number" min="0" step="0.01" placeholder="0.00" required>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input id="quantity" name="quantity" type="number" min="1" step="1" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input id="category" name="category" type="text" placeholder="e.g. Food, Transport" required>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date" required>
+        </div>
+
+        <div class="form-actions">
+          <button id="add-btn" type="submit" class="btn primary">Add Expense</button>
+          <button id="clear-form" type="button" class="btn ghost">Reset Form</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="controls card">
+      <div class="control-group">
+        <label for="sort-select">Sort By</label>
+        <select id="sort-select">
+          <option value="date-desc">Date (new → old)</option>
+          <option value="date-asc">Date (old → new)</option>
+          <option value="amount-desc">Amount (high → low)</option>
+          <option value="amount-asc">Amount (low → high)</option>
+          <option value="category-asc">Category (A → Z)</option>
+          <option value="category-desc">Category (Z → A)</option>
+        </select>
+        <button id="sort-btn" class="btn">Sort</button>
+      </div>
+
+      <div class="control-group">
+        <label for="filter-category">Filter by Category</label>
+        <select id="filter-category">
+          <option value="all">All Categories</option>
+        </select>
+        <button id="filter-btn" class="btn">Apply</button>
+      </div>
+
+      <div class="control-group right">
+        <button id="clear-all" class="btn danger">Clear All</button>
+      </div>
+    </section>
+
+    <section class="table-card card">
+      <div class="table-wrapper">
+        <table id="expense-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Date</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="summary">
+        <div class="summary-item">Total Expenses: <span id="expense-count">0</span></div>
+        <div class="summary-item">Total Amount: <span id="total-amount">₹0.00</span></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Built with ❤️ for Kanha — stores data locally in your browser (localStorage).</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
